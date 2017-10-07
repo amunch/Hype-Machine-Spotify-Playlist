@@ -15,7 +15,7 @@ token = util.prompt_for_user_token(USERNAME, scope)
 if token:
     sp = spotipy.Spotify(auth=token)
     sp.trace = False
-    results = sp.user_playlist_add_tracks(USERNAME, PLAYLIST_ID, scrape.generate_tracklist())
+    results = sp.user_playlist_replace_tracks(USERNAME, PLAYLIST_ID, scrape.generate_tracklist())
     print(results)
 else:
     print("Can't get token for", username)
